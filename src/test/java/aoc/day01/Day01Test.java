@@ -13,9 +13,7 @@ public class Day01Test {
 
     @Test
     public void testInvalidCharacter() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            Button.fromChar('X');
-        });
+        assertThrows(IllegalArgumentException.class, () -> Button.fromChar('X'));
     }
 
     @Test
