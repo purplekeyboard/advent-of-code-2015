@@ -1,4 +1,4 @@
-# Advent of Code Java Starter project
+# Advent of Code 2015
 
 A project to get you started solving [Advent of Code](https://adventofcode.com/) challenge in Java.
 
