@@ -22,9 +22,8 @@ public class Lift {
     public void ride(List<String> floorsToVisit, boolean basementIsDestination) {
         for (String floorToVisit : floorsToVisit) {
             for (char buttonPress : floorToVisit.toCharArray()) {
-                Button button = Button.fromChar(buttonPress);
-                pushButton(button);
-                if (this.currentFloor == BASEMENT_LEVEL && basementIsDestination) {
+                pushButton(Button.fromChar(buttonPress));
+                if (basementIsDestination && this.currentFloor == BASEMENT_LEVEL) {
                     break;
                 }
             }
