@@ -12,6 +12,7 @@ import java.io.UncheckedIOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import static java.util.stream.Collectors.toList;
 
@@ -25,13 +26,10 @@ public class App {
     }
 
     private static List<String> loadInput(int day){
-        String paddedDay = String.valueOf(day);
-        if(day < 10) {
-            paddedDay = "0" + day;
-        }
+        String paddedDay = day < 10 ? "0" + day : String.valueOf(day);
         String fileName = "day" + paddedDay + ".txt";
 
-        try(BufferedReader r = new BufferedReader(new InputStreamReader(ClassLoader.getSystemResourceAsStream(fileName)))){
+        try(BufferedReader r = new BufferedReader(new InputStreamReader(Objects.requireNonNull(ClassLoader.getSystemResourceAsStream(fileName))))){
             return r.lines().collect(toList());
         } catch(IOException e){
             throw new UncheckedIOException(e);
@@ -58,6 +56,8 @@ public class App {
             result = DAYS.get(day).part2(input);
         }
 
-        System.out.println(result);
+        String formattedDay = day < 10 ? "0" + day : String.valueOf(day);
+        String formattedPart = part < 10 ? "0" + part : String.valueOf(part);
+        System.out.printf("The solution for Day %s Part %s is: %s%n", formattedDay, formattedPart, result);
     }
 }

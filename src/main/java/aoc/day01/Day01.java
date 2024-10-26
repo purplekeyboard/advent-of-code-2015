@@ -8,12 +8,18 @@ public class Day01 implements Day {
 
     @Override
     public String part1(List<String> input) {
-        return input.isEmpty() ? "" : input.get(0);
+        Lift lift = new Lift();
+        lift.ride(input, false);
+
+        return String.valueOf(lift.getCurrentFloor());
     }
 
     @Override
     public String part2(List<String> input) {
-        return input.isEmpty() ? "" : input.get(0);
+        Lift lift = new Lift();
+        lift.ride(input, true);
+
+        return String.valueOf(lift.getButtonPresses());
     }
 
 }
